@@ -1,10 +1,19 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [hide, setHide] = useState(false);
+
+  function clickHandler() {
+    setHide(!hide)
+  }
+
   return (
-    <div className="App">
-      App
-    </div>
+    <>
+      <button onClick={clickHandler}>Hide Element Below</button>
+
+      <div hidden={hide}>Toggle Challenge</div>
+    </>
   );
 }
 
