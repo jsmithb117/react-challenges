@@ -1,11 +1,16 @@
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [] = useState(0);
+
   return (
-    <div className="App">
-      App
+    <div>
+      <h2>Counter: 0</h2>
+      <button>Increment</button>
+      <button>Decrement</button>
     </div>
   );
-}
+};
 
 export default App;
