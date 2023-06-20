@@ -1,11 +1,12 @@
 import './App.css';
 import { useState } from 'react';
 
-function Child() {
+function Child({ textChange }) {
+  const childText = 'child text'
   return (
     <>
       <div>Child</div>
-      <button>Change Parent Value</button>
+      <button onClick={() => textChange(childText)}>Change Parent Value</button>
     </>
   );
 }
@@ -14,6 +15,10 @@ function Parent() {
   const [value, setValue] = useState(
     "I need to be updated from my child"
   );
+
+  function textChange(text) {
+    setValue(text)
+  }
 
   return (
     <>
@@ -24,7 +29,7 @@ function Parent() {
       </div>
 
       <div className="wrapper">
-        <Child />
+        <Child textChange={textChange}/>
       </div>
     </>
   );
